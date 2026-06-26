@@ -33,6 +33,10 @@ def main():
         updatable.update(dt)
         for asteroid in asteroids:
             if player.collide(asteroid):
+                ## points not working correctly yet
+                points = int(ASTEROID_MAX_RADIUS / asteroid.radius) * 10
+                player.score(points)
+                print(f"YOU MANAGED TO GET {points} POINTS!")
                 sys.exit("Game Over!")
         for asteroid in asteroids:
             for shot in shots:
